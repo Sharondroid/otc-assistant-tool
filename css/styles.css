@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f3f4f6;
+}
+.container {
+    max-width: 1000px;
+}
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e7eb;
+}
+input, select {
+    border: 1px solid #d1d5db;
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+input:focus, select:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    background-color: #6366f1;
+    color: white;
+    transition: background-color 0.2s ease;
+}
+button:hover {
+    background-color: #4f46e5;
+}
+.search-container {
+    min-height: 200px;
+}
+.first-aid-section {
+    background-color: #eef2ff;
+}
+.accordion-header {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.accordion-header:hover {
+    background-color: #e0e7ff;
+}
+.accordion-content {
+    display: none;
+}
+.accordion-content.active {
+    display: block;
+}
+.icon {
+    transition: transform 0.2s ease-in-out;
+}
+.icon.rotate-90 {
+    transform: rotate(90deg);
+}
+select[multiple] {
+    height: 120px;
+    overflow-y: auto;
+}
+select[multiple] option:checked {
+    background-color: #e0e7ff;
+    color: #4338ca;
+}

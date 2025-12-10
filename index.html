@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OTC Medical Agent | Ghana</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="flex flex-col min-h-screen text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-indigo-600 text-white shadow-md py-4">
+        <div class="container mx-auto px-4">
+            <h1 class="text-2xl font-bold text-center">OTC Medical Assistant</h1>
+            <p class="text-sm text-center text-indigo-200">A quick-reference tool for approved drugs in Ghana</p>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+
+        <!-- Disclaimer -->
+        <div class="card p-4 mb-8 text-sm text-center bg-yellow-50 text-yellow-800 border-yellow-200">
+            <p><strong>Disclaimer:</strong> This is a decision-support tool. Always use professional medical judgment.</p>
+        </div>
+
+        <!-- A-Z Index Section -->
+        <div class="card p-4 mb-8 text-center bg-gray-50">
+            <h2 class="text-lg font-bold mb-2">Alphabetical Drug Index</h2>
+            <div id="alphabeticalIndex" class="flex flex-wrap justify-center gap-1">
+                <!-- Alphabetical buttons will be injected here by JS -->
+            </div>
+        </div>
+
+        <!-- Two-Panel Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            <!-- Panel 1: Symptoms to Drug Recommendation -->
+            <div class="card p-6 flex flex-col h-full">
+                <h2 class="text-xl font-bold mb-4">1. Find Drugs by Symptoms</h2>
+                <p class="text-sm text-gray-500 mb-2">Hold `Ctrl` or `Cmd` to select multiple symptoms.</p>
+                <div class="flex flex-col gap-4 mb-4">
+                    <select id="symptomSelect" multiple class="w-full">
+                        <!-- Symptom options will be populated by JS -->
+                    </select>
+                </div>
+                <button id="searchSymptomsButton">Search Symptoms</button>
+                
+                <div id="symptomResults" class="search-container overflow-y-auto mt-4">
+                    <!-- Search results will be displayed here -->
+                </div>
+            </div>
+
+            <!-- Panel 2: Drug Information -->
+            <div class="card p-6 flex flex-col h-full">
+                <h2 class="text-xl font-bold mb-4">2. Find Drug Information</h2>
+                <div class="flex flex-col gap-4 mb-4">
+                    <select id="drugNameSelect" class="w-full">
+                        <option value="">Select a drug...</option>
+                        <!-- Drug options will be populated by JS -->
+                    </select>
+                </div>
+                
+                <div id="drugInfoResults" class="search-container overflow-y-auto">
+                    <!-- Search results will be displayed here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Dosage Calculator Section -->
+        <div class="card p-6 my-8">
+            <h2 class="text-xl font-bold mb-4">3. Dosage Calculator</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 items-end">
+                <div>
+                    <label for="calcDrugSelect" class="block text-sm font-medium text-gray-700">Select Drug:</label>
+                    <select id="calcDrugSelect" class="w-full mt-1">
+                        <option value="">Select a drug...</option>
+                        <!-- Drug options will be populated by JS -->
+                    </select>
+                </div>
+                <div>
+                    <label for="ageInput" class="block text-sm font-medium text-gray-700">Patient's Age (years):</label>
+                    <input type="number" id="ageInput" placeholder="e.g., 25" min="1" class="w-full mt-1">
+                </div>
+                <div>
+                    <label for="weightInput" class="block text-sm font-medium text-gray-700">Weight (kg) <span class="text-gray-400 text-xs">(for children)</span>:</label>
+                    <input type="number" id="weightInput" placeholder="e.g., 15" min="1" class="w-full mt-1">
+                </div>
+                <button id="calculateDosageButton" class="md:col-span-1">Calculate Dosage</button>
+            </div>
+            <div id="dosageResult" class="bg-gray-50 p-4 rounded-md hidden">
+                <!-- Dosage result will be displayed here -->
+            </div>
+        </div>
+
+        <!-- First-Aid Guide Section -->
+        <div class="card p-6 my-8 first-aid-section">
+            <h2 class="text-xl font-bold mb-4">4. Basic First-Aid Guide</h2>
+
+            <div class="accordion-item mb-2">
+                <div class="accordion-header p-4 flex items-center justify-between rounded-md bg-gray-100">
+                    <h3 class="font-semibold text-gray-800">
+                        <i class="fas fa-heartbeat text-red-500 mr-2"></i>Choking
+                    </h3>
+                    <i class="fas fa-chevron-right icon"></i>
+                </div>
+                <div class="accordion-content p-4 mt-2 bg-white rounded-md border border-gray-200">
+                    <p class="font-medium">For Adults & Children over 1 year:</p>
+                    <ul class="list-disc list-inside mt-2 text-sm text-gray-600">
+                        <li>Encourage the person to cough.</li>
+                        <li>If coughing doesn't work, give 5 sharp back blows between their shoulder blades.</li>
+                        <li>Follow with 5 abdominal thrusts (Heimlich maneuver).</li>
+                        <li>Call for emergency help immediately.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="accordion-item mb-2">
+                <div class="accordion-header p-4 flex items-center justify-between rounded-md bg-gray-100">
+                    <h3 class="font-semibold text-gray-800">
+                        <i class="fas fa-burn text-orange-500 mr-2"></i>Minor Burns
+                    </h3>
+                    <i class="fas fa-chevron-right icon"></i>
+                </div>
+                <div class="accordion-content p-4 mt-2 bg-white rounded-md border border-gray-200">
+                    <p class="font-medium">Treatment:</p>
+                    <ul class="list-disc list-inside mt-2 text-sm text-gray-600">
+                        <li>Immediately cool the burn under cool or lukewarm running water for at least 10-20 minutes.</li>
+                        <li>Do not use ice, iced water, or greasy substances like butter.</li>
+                        <li>Remove any jewelry or clothing from the affected area before it swells.</li>
+                        <li>Cover with a sterile, non-fluffy dressing.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-item mb-2">
+                <div class="accordion-header p-4 flex items-center justify-between rounded-md bg-gray-100">
+                    <h3 class="font-semibold text-gray-800">
+                        <i class="fas fa-frown text-purple-500 mr-2"></i>Allergic Reactions
+                    </h3>
+                    <i class="fas fa-chevron-right icon"></i>
+                </div>
+                <div class="accordion-content p-4 mt-2 bg-white rounded-md border border-gray-200">
+                    <p class="font-medium">Signs of severe reaction (anaphylaxis):</p>
+                    <ul class="list-disc list-inside mt-2 text-sm text-gray-600">
+                        <li>Difficulty breathing or wheezing.</li>
+                        <li>Swelling of the throat, tongue, or lips.</li>
+                        <li>Faintness or dizziness.</li>
+                    </ul>
+                    <p class="font-medium mt-4">Action:</p>
+                    <ul class="list-disc list-inside mt-2 text-sm text-gray-600">
+                        <li>Call for emergency help immediately.</li>
+                        <li>If the person has an adrenaline auto-injector (e.g., EpiPen), help them use it.</li>
+                        <li>Lie them down and raise their legs.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="accordion-item mb-2">
+                <div class="accordion-header p-4 flex items-center justify-between rounded-md bg-gray-100">
+                    <h3 class="font-semibold text-gray-800">
+                        <i class="fas fa-band-aid text-teal-500 mr-2"></i>Cuts & Scrapes
+                    </h3>
+                    <i class="fas fa-chevron-right icon"></i>
+                </div>
+                <div class="accordion-content p-4 mt-2 bg-white rounded-md border border-gray-200">
+                    <p class="font-medium">Treatment for minor cuts:</p>
+                    <ul class="list-disc list-inside mt-2 text-sm text-gray-600">
+                        <li>Wash your hands thoroughly before treating the wound.</li>
+                        <li>Gently wash the wound with clean water and mild soap.</li>
+                        <li>Apply gentle pressure with a clean cloth or gauze to stop any bleeding.</li>
+                        <li>Apply an antiseptic ointment and cover the wound with a clean bandage.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-item mb-2">
+                <div class="accordion-header p-4 flex items-center justify-between rounded-md bg-gray-100">
+                    <h3 class="font-semibold text-gray-800">
+                        <i class="fas fa-dizzy text-yellow-500 mr-2"></i>Fainting (Syncope)
+                    </h3>
+                    <i class="fas fa-chevron-right icon"></i>
+                </div>
+                <div class="accordion-content p-4 mt-2 bg-white rounded-md border border-gray-200">
+                    <p class="font-medium">When someone faints:</p>
+                    <ul class="list-disc list-inside mt-2 text-sm text-gray-600">
+                        <li>Lay the person down and elevate their legs above heart level.</li>
+                        <li>Loosen tight clothing, belts, or collars.</li>
+                        <li>Make sure they have fresh air.</li>
+                        <li>If they don't regain consciousness in a minute, call for emergency help.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-200 text-gray-600 text-center text-sm py-4 mt-8">
+        <p>Developed for OTC Medical Personnel in Ghana by Sharon Attafi &copy; 2025.</p>
+    </footer>
+
+    <!-- External JavaScript -->
+    <script src="js/app.js"></script>
+</body>
+</html>
