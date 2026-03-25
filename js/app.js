@@ -1,3 +1,6 @@
+if (typeof OTC_DB === "undefined") {
+  alert("data.js is not loading!");
+}
 let selected = new Set();
 
 document.addEventListener("DOMContentLoaded", () => {
