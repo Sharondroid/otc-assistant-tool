@@ -21,14 +21,23 @@
 <body class="min-h-screen bg-gray-50">
     <nav class="sticky top-0 z-50 glass-card border-b px-6 py-4 flex items-center justify-between">
         <div class="flex items-center gap-3">
-            <div class="w-10 h-10 bg-brand-600 rounded-xl flex items-center justify-center text-white shadow-lg"><i class="fas fa-stethoscope"></i></div>
-            <h1 class="font-black text-lg text-brand-900">OTC Assist <span class="text-brand-500 text-sm">PRO</span></h1>
+            <div class="w-10 h-10 bg-brand-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-brand-100">
+                <i class="fas fa-stethoscope text-lg"></i>
+            </div>
+            <div class="hidden sm:block">
+                <h1 class="font-black text-lg leading-none text-brand-900 tracking-tight">OTC Assist <span class="text-brand-500 text-sm">PRO</span></h1>
+            </div>
         </div>
+
         <div class="flex items-center gap-8 text-[11px] font-black text-gray-400 uppercase tracking-widest">
             <span onclick="switchView('diagnostics')" class="nav-link active" data-view="diagnostics">Symptom Checker</span>
             <span onclick="switchView('firstaid')" class="nav-link" data-view="firstaid">First Aid</span>
             <span onclick="switchView('lab')" class="nav-link" data-view="lab">Diagnostic Kits</span>
             <span onclick="switchView('market')" class="nav-link" data-view="market">Drug Index</span>
+        </div>
+
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-400 border"><i class="fas fa-user text-xs"></i></div>
         </div>
     </nav>
 
