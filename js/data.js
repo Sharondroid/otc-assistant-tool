@@ -1,4 +1,4 @@
- const OTC_DB = [
+ window.OTC_DB = [
           { name: "Paracetamol", category: "Analgesic & Antipyretic", symptoms: ["Fever", "Headache", "Muscle Ache", "Toothache", "Back Pain", "Sore Throat", "Migraine (Mild)", "Neuralgia", "Ear Pain"], action: "Reduces prostaglandin synthesis in CNS.", precautions: "Max 4g/24h. Avoid with alcohol to prevent liver damage.", brands: ["Panadol", "M&G Paracetamol", "Efpac", "Emzor"] },
             { name: "Ibuprofen / Naproxen", category: "NSAID", symptoms: ["Inflammation", "Menstrual Cramps", "Joint Pain", "Swelling", "Rheumatoid Arthritis", "Sports Injury", "Tendonitis"], action: "Inhibits COX-1/COX-2 enzymes to block inflammation.", precautions: "Take with food. Avoid in asthma or stomach ulcers.", brands: ["Brufen", "Voltaren Oral", "Naprosyn", "Ibugesic"] },
             { name: "Cetirizine / Loratadine", category: "Antihistamine", symptoms: ["Sneezing", "Runny Nose", "Itching", "Watery Eyes", "Hives", "Hay Fever", "Insect Bites", "Skin Allergy"], action: "Selective H1-receptor antagonist.", precautions: "Avoid alcohol. May cause mild sedation in sensitive individuals.", brands: ["Cetrine", "Aller-G", "Lora-Tab", "Piriton"] },
@@ -16,7 +16,7 @@
             { name: "Ciprofloxacin / Azithromycin", category: "Antibiotic (Prescription Required)", symptoms: ["Bacterial Infection", "Typhoid Fever", "Severe Diarrhea", "Persistent Fever"], action: "Inhibits bacterial DNA/Protein synthesis.", precautions: "Must be prescribed by a doctor. Complete the full dose.", brands: ["Zithromax", "Cipro-Tab", "Kofikrom Cipro"] }
         ];
 
-        const PROTOCOLS = {
+       window.PROTOCOLS = {
             firstAid: [
                 { title: "Minor Burns", desc: "Hold under cool running water for 20 mins. Cover with clean film. Do not use ice or butter.", icon: "fa-fire" },
                 { title: "Choking", desc: "Perform 5 back blows followed by 5 abdominal thrusts. Repeat until object is expelled.", icon: "fa-person-circle-exclamation" },
@@ -27,7 +27,7 @@
                 { title: "High Fever (Child)", desc: "Remove excess clothing. Lukewarm sponge bath. Give Paracetamol if appropriate. Monitor for seizures.", icon: "fa-child-reaching" },
                 { title: "Snake Bite", desc: "Keep victim calm and still. Immobilize limb at heart level. Do not suck venom. Identify species if safe.", icon: "fa-staff-snake" }
             ],
-            lab: [
+            window.lab: [
                 { title: "Malaria RDT", steps: ["Clean finger with alcohol", "Prick with lancet", "Collect blood in loop", "Add to well with 2 drops buffer", "Read at 15 mins"] },
                 { title: "COVID Antigen", steps: ["Swab both nostrils (rotate 5x)", "Rotate swab in buffer tube", "Squeeze 3 drops into sample well", "Read at 15-20 mins"] },
                 { title: "Typhoid Widal", steps: ["Prick finger for blood", "Add blood to test card", "Mix with specific reagent", "Observe for agglutination (clumping)"] },
