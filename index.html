@@ -6,12 +6,15 @@
     <title>OTC Assist Pro</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script>
-        tailwind.config = {
+       tailwind.config = {
             theme: {
                 extend: {
-                    colors: { brand: { 50: '#f0f7ff', 500: '#0085FF', 600: '#0066CC', 900: '#00264D' } },
+                    colors: {
+                        brand: { 50: '#f0f7ff', 100: '#e0effe', 200: '#bae0fd', 500: '#0085FF', 600: '#0066CC', 700: '#004C99', 900: '#00264D' }
+                    },
                     fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] }
                 }
             }
@@ -41,34 +44,65 @@
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto p-6 lg:p-10">
-        <section id="view-diagnostics" class="view-content active">
+<main class="max-w-7xl mx-auto p-6 lg:p-10">
+        
+        <!-- View: Symptom Checker -->
+        <div id="view-diagnostics" class="view-content active">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                <div class="lg:col-span-4"><div class="glass-card rounded-3xl p-6 border"><h3 class="font-black mb-4">Select Presentation</h3><input type="text" id="sym-search" placeholder="Search..." class="w-full p-3 bg-gray-50 rounded-xl text-xs border outline-none"><div id="sym-cloud" class="flex flex-wrap gap-2 mt-4 max-h-[50vh] overflow-y-auto hide-scrollbar"></div></div></div>
-                <div class="lg:col-span-8"><div id="results-engine" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div></div>
+                <div class="lg:col-span-4 space-y-6">
+                    <div class="glass-card rounded-3xl p-6 border">
+                        <h3 class="font-black text-gray-900 mb-4">Select Presentation</h3>
+                        <div class="relative mb-4">
+                            <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-300"></i>
+                            <input type="text" id="sym-search" placeholder="Search symptoms..." class="w-full pl-10 pr-4 py-3 bg-gray-50 rounded-xl text-xs font-bold outline-none border border-transparent focus:border-brand-500">
+                        </div>
+                        <div id="sym-cloud" class="flex flex-wrap gap-2 max-h-[50vh] overflow-y-auto pr-2 hide-scrollbar"></div>
+                    </div>
+                </div>
+                <div class="lg:col-span-8">
+                    <div id="results-engine" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                </div>
             </div>
-        </section>
+        </div>
 
-        <section id="view-firstaid" class="view-content">
-            <h2 class="text-3xl font-black mb-6">Emergency Protocols</h2>
+        <!-- View: First Aid -->
+        <div id="view-firstaid" class="view-content">
+            <div class="mb-10">
+                <h2 class="text-3xl font-black text-gray-900">Emergency Protocols</h2>
+                <p class="text-gray-500">Immediate response procedures for acute conditions and accidents.</p>
+            </div>
             <div id="firstaid-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
-        </section>
+        </div>
 
-        <section id="view-lab" class="view-content">
-            <h2 class="text-3xl font-black mb-6">Home Diagnostic Logic</h2>
-            <div id="lab-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
-        </section>
+        <!-- View: Lab Kits -->
+        <div id="view-lab" class="view-content">
+            <div class="mb-10">
+                <h2 class="text-3xl font-black text-gray-900">Home Diagnostic Logic</h2>
+                <p class="text-gray-500">Step-by-step instructions for Point-of-Care (POC) rapid testing and monitoring.</p>
+            </div>
+            <div id="lab-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </div>
 
-        <section id="view-market" class="view-content">
-            <h2 class="text-3xl font-black mb-6">Drug Index</h2>
+        <!-- View: Drug Index -->
+        <div id="view-market" class="view-content">
+            <div class="mb-10">
+                <h2 class="text-3xl font-black text-gray-900">Generic & Brand Index</h2>
+                <p class="text-gray-500">Clinical reference for molecules and their Ghanaian brand equivalents.</p>
+            </div>
             <div class="glass-card rounded-[2rem] border overflow-hidden">
                 <table class="w-full text-left">
-                    <thead class="bg-gray-50/50 text-[10px] font-black uppercase text-gray-400 border-b"><tr><th class="p-6">Generic</th><th class="p-6">Action</th><th class="p-6">Brands</th></tr></thead>
+                    <thead class="bg-gray-50/50 text-[10px] font-black uppercase text-gray-400 border-b">
+                        <tr><th class="p-6">Generic Molecule</th><th class="p-6">Action</th><th class="p-6">Ghana Brands</th></tr>
+                    </thead>
                     <tbody id="market-table" class="text-xs"></tbody>
                 </table>
             </div>
-        </section>
+        </div>
+
     </main>
+	 <footer class="text-center text-slate-400 text-sm pb-8">
+            <p>&copy; 2026 OTC Medical Agent 2.0. Designed by Sharondroid.</p>
+        </footer>
 
     <script src="js/data.js"></script>
     <script src="js/app.js"></script>
